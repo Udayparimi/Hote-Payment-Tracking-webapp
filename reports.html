@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        💳 PayTrack
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="payments.html">Payments</a>
+
+        <a href="reports.html">Reports</a>
+
+        <a href="analytics.html">Analytics</a>
+
+        <a href="about.html">About</a>
+
+    </div>
+
+</nav>
+
+<div class="page-header">
+    <h1>📊 Reports</h1>
+    <p>Revenue and payment summaries</p>
+</div>
+
+<div class="stats">
+
+    <div class="card">
+        <h3>Total Revenue</h3>
+        <h2 id="revenue">₹0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Total Payments</h3>
+        <h2 id="count">0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Highest Payment</h3>
+        <h2 id="highest">₹0</h2>
+    </div>
+
+    <div class="card">
+        <h3>Average Payment</h3>
+        <h2 id="average">₹0</h2>
+    </div>
+
+</div>
+
+<footer>
+    Built using HTML5, CSS3, JavaScript & Local Storage API
+</footer>
+
+<script>
+
+const payments =
+JSON.parse(localStorage.getItem("payments")) || [];
+
+let revenue = 0;
+let highest = 0;
+
+payments.forEach(payment => {
+
+    revenue += Number(payment.amount);
+
+    if(Number(payment.amount) > highest){
+
+        highest =
+        Number(payment.amount);
+
+    }
+
+});
+
+let average =
+
+payments.length > 0
+
+?
+
+revenue / payments.length
+
+:
+
+0;
+
+document.getElementById("revenue")
+.textContent =
+"₹" + revenue.toLocaleString();
+
+document.getElementById("count")
+.textContent =
+payments.length;
+
+document.getElementById("highest")
+.textContent =
+"₹" + highest.toLocaleString();
+
+document.getElementById("average")
+.textContent =
+"₹" + average.toFixed(2);
+
+</script>
+
+</body>
+</html>

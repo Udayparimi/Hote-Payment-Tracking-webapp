@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <nav class="navbar">
+
+        <div class="logo">
+            💳 PayTrack
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="payments.html">Payments</a>
+            <a href="reports.html">Reports</a>
+            <a href="analytics.html">Analytics</a>
+            <a href="about.html">About</a>
+        </div>
+
+    </nav>
+
+    <div class="page-header">
+
+        <h1>Payment Dashboard</h1>
+
+        <p>
+            Manage and monitor hotel payments
+        </p>
+
+    </div>
+
+    <section class="stats">
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <h2 id="revenue">₹0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Payments</h3>
+            <h2 id="paymentsCount">0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Highest Payment</h3>
+            <h2 id="highestPayment">₹0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Average Payment</h3>
+            <h2 id="averagePayment">₹0</h2>
+        </div>
+
+    </section>
+
+    <section class="form-card">
+
+        <h2>Add New Payment</h2>
+
+        <form id="paymentForm">
+
+            <input
+                type="number"
+                id="paymentId"
+                placeholder="Payment ID"
+                required>
+
+            <input
+                type="number"
+                id="bookingId"
+                placeholder="Booking ID"
+                required>
+
+            <input
+                type="number"
+                id="amount"
+                placeholder="Amount"
+                required>
+
+            <input
+                type="date"
+                id="date"
+                required>
+
+            <select id="method" required>
+
+                <option value="">
+                    Select Method
+                </option>
+
+                <option>UPI</option>
+                <option>Cash</option>
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+                <option>Net Banking</option>
+
+            </select>
+
+            <button type="submit">
+                Add Payment
+            </button>
+
+        </form>
+
+    </section>
+
+    <section class="search-card">
+
+        <div class="filter-group">
+
+            <label>
+                Filter By Method
+            </label>
+
+            <select id="filterMethod">
+
+                <option value="All">
+                    All Methods
+                </option>
+
+                <option value="UPI">
+                    UPI
+                </option>
+
+                <option value="Cash">
+                    Cash
+                </option>
+
+                <option value="Credit Card">
+                    Credit Card
+                </option>
+
+                <option value="Debit Card">
+                    Debit Card
+                </option>
+
+                <option value="Net Banking">
+                    Net Banking
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="filter-group">
+
+            <label>
+                Search Booking ID
+            </label>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Enter Booking ID">
+
+        </div>
+
+    </section>
+
+    <section class="table-card">
+
+        <h2>Payment Records</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Payment ID</th>
+
+                    <th>Booking ID</th>
+
+                    <th>Amount</th>
+
+                    <th>Method</th>
+
+                    <th>Date</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="paymentTable">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <footer>
+
+        Built using HTML5, CSS3,
+        JavaScript & Local Storage API
+
+    </footer>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
